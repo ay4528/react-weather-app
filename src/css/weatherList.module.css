@@ -1,0 +1,64 @@
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    background: linear-gradient(to right, #3E84F6, #90C3FD);
+    padding: 2em;
+    border-radius: 20px;
+    position: relative;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(to right, #F04748, #FAA2A2);
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(to right, #14BA83, #6AE5B5);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(to right, #F5A00E, #FCD14B);
+}
+
+.head {
+    color: #fff;
+    letter-spacing: .05em;
+    font-size: 14px;
+}
+
+.title {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: .1em;
+}
+
+.cityBox {
+    margin-bottom: 2em;
+}
+
+.conditionBox {
+    margin-bottom: 2em;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 0 5em;
+}
+
+.icon {
+    position: absolute;
+    top: 2.3em;
+    right: 2.3em;
+}
+
+@media (max-width: 750px) {
+    .card {
+        width: 100%;
+    }
+
+    .flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2em 0;
+    }
+}
