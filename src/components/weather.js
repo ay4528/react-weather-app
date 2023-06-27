@@ -1,4 +1,5 @@
 import { WeatherData } from "./weatherData";
+import { SearchWeather } from "./searchWeather";
 import styles from '../css/weather.module.css'
 
 export const Weather = () => {
@@ -19,10 +20,14 @@ export const Weather = () => {
     ]
 
     return (
-        <div className={styles.grid}>
-            {cities.map((city, index) => (
-                <WeatherData key={index} cityName={city.cityName} />
-            ))}
+        <div>
+            <SearchWeather />
+
+            <div className={styles.grid}>
+                {cities.map((city, index) => (
+                    <WeatherData key={index} cityName={city.cityName} />
+                ))}
+            </div>
         </div>
     )
 }
