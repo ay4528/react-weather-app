@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useJsApiLoader } from "@react-google-maps/api";
+import { useJsApiLoader, GoogleMap, MarkerF } from "@react-google-maps/api";
 import styles from '../css/searchWeather.module.css';
 
 export const SearchWeather = () => {
@@ -10,6 +10,16 @@ export const SearchWeather = () => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const mapStyle = {
+        height: "100%",
+        width: "100%",
+    };
+
+    const position = {
+        lat: lat,
+        lng: lng
+    };
 
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_GEOCODING_API,
@@ -52,30 +62,39 @@ export const SearchWeather = () => {
             </div>
 
             <div className={styles.result}>
-                <p className={styles.title}>{name}付近の現在の天気</p>
-                <div className={styles.top}>
-                    <div className={styles.icon}>
-                        <img src={`${process.env.REACT_APP_ICON_URL}/${data.weather[0].icon}.png`} />
+                <div className={styles.flex}>
+                    <div className={styles.list}>
+                        <div className={styles.head_box}>
+                            <p className={styles.title}>{name}付近の現在の天気</p>
+                            <div className={styles.top}>
+                                <div className={styles.icon}>
+                                    <img src={`${process.env.REACT_APP_ICON_URL}/${data.weather[0].icon}.png`} />
+                                </div>
+                                <p className={styles.text}>{Math.round(data.main.temp)}℃</p>
+                            </div>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>体感温度</th>
+                                    <td>{Math.round(data.main.feels_like)}℃</td>
+                                    <th>最高気温</th>
+                                    <td>{Math.round(data.main.temp_max)}℃</td>
+                                </tr>
+                                <tr>
+                                    <th>最低気温</th>
+                                    <td>{Math.round(data.main.temp_min)}℃</td>
+                                    <th>湿度</th>
+                                    <td>{data.main.humidity}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <p className={styles.text}>{Math.round(data.main.temp)}℃</p>
-                </div>
-                <div className={styles.list}>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>体感温度</th>
-                                <td>{Math.round(data.main.feels_like)}℃</td>
-                                <th>最高気温</th>
-                                <td>{Math.round(data.main.temp_max)}℃</td>
-                            </tr>
-                            <tr>
-                                <th>最低気温</th>
-                                <td>{Math.round(data.main.temp_min)}℃</td>
-                                <th>湿度</th>
-                                <td>{data.main.humidity}%</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div className={styles.map}>
+                        <GoogleMap center={{ lat: lat, lng: lng }} zoom={12} mapContainerStyle={mapStyle}>
+                            <MarkerF position={position} />
+                        </GoogleMap>
+                    </div>
                 </div>
             </div>
         </div>
