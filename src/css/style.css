@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+.main {
+	padding: 100px 0;
+}
+
+.container_default {
+	width: 80%;
+	max-width: 1440px;
+	margin: 0 auto;
+}
+
+.main_header {
+	background: #FAFAFA;
+	padding: 1.5em 0;
+	text-align: center;
+}
+
+.main_header .hd_title {
+	font-size: 24px;
+	font-weight: 700;
+	letter-spacing: .05em;
+}
+
+.main_footer {
+	background: #FAFAFA;
+	padding: 1.5em 0;
+	text-align: center;
+}
+
+.copyright {
+	font-size: 14px;
+	letter-spacing: .05em;
+}
+
+.weather_list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2em;
+}
+
+.weather_list .card {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+	background: linear-gradient(to right, #3E84F6, #90C3FD);
+	padding: 2em;
+	border-radius: 20px;
+	position: relative;
+}
+
+.weather_list .card:nth-child(2) {
+	background: linear-gradient(to right, #F04748, #FAA2A2);
+}
+
+.weather_list .card:nth-child(3) {
+	background: linear-gradient(to right, #14BA83, #6AE5B5);
+}
+
+.weather_list .card:nth-child(4) {
+	background: linear-gradient(to right, #F5A00E, #FCD14B);
+}
+
+.weather_list .card .inbox .head {
+	color: #fff;
+	letter-spacing: .05em;
+	font-size: 14px;
+}
+
+.weather_list .card .inbox .title {
+	color: #fff;
+	font-weight: 700;
+	font-size: 18px;
+	letter-spacing: .1em;
+}
+
+.weather_list .card .inbox+.inbox {
+	margin-block: 2em 0;
+}
+
+.weather_list .card .inbox.detail {
+	display: flex;
+	align-items: center;
+	gap: 0 5em;
+}
+
+.weather_list .card .icon {
+	position: absolute;
+	top: 2.3em;
+	right: 2.3em;
+}
+
+.search_box {
+	margin-bottom: 3em;
+}
+
+.search_box .form {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+
+.search_box .form .text {
+	border: 1px solid #ccc;
+	border-width: 1px 0 1px 1px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	padding: 0.5em 1em;
+	width: 30%;
+}
+
+.search_box .form .btn {
+	background-color: #3E84F6;
+	color: #fff;
+	font-weight: 700;
+	padding: 0 1em;
+	border-radius: 0 5px 5px 0;
+}
+
+.search_box .result .inner {
+	display: flex;
+	gap: 0 50px;
+}
+
+.search_box .result .list {
+	width: 100%;
+}
+
+.search_box .result .head_box .title {
+	font-weight: 700;
+	font-size: 20px;
+	letter-spacing: .05em;
+	text-align: center;
+	margin-bottom: 0.5em;
+}
+
+.search_box .result .temp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0 1em;
+	margin-bottom: 1em;
+}
+
+.search_box .result .temp .icon {
+	flex-shrink: 0;
+}
+
+.search_box .result .temp .text {
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: .03em;
+}
+
+.search_box .result .list table {
+	width: 100%;
+}
+
+.search_box .result .list table th,
+.search_box .result .list table td {
+	border: 1px solid #E0E0E0;
+	padding: 1em;
+	letter-spacing: .05em;
+}
+
+.search_box .result .list table th {
+	white-space: nowrap;
+	background: #FAFAFA;
+}
+
+.search_box .result .map {
+	flex-shrink: 0;
+	width: 48%;
+	height: 450px;
+}
+
+@media (max-width: 750px) {
+	.container_default {
+		width: 100%;
+		max-width: 90%;
+	}
+
+	.weather_list {
+		grid-template-columns: 1fr;
+	}
+
+	.weather_list .card {
+		width: 100%;
+	}
+
+	.weather_list .card .inbox.detail {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2em 0;
+	}
+}
